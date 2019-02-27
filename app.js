@@ -5,6 +5,7 @@ const { buildSchema } = require("graphql");
 const mongoose = require("mongoose");
 
 const Event = require("./models/event");
+const User = require("./models/user");
 
 const app = express();
 
@@ -23,11 +24,22 @@ app.use(
         date: String!
       }
 
+      type User {
+        _id: ID!
+        email: String!
+        password: String
+      }
+
       input EventInput {
         title: String!
         description: String!
         price: Float!
         date: String!
+      }
+
+      input UserInput {
+        email: String!
+        password: String
       }
 
       type RootQuery {
@@ -36,6 +48,7 @@ app.use(
 
       type RootMutation {
         createEvent(eventInput: EventInput): Event
+        createUser(userInput: UserInput): User
       }
     
       schema{
@@ -73,6 +86,12 @@ app.use(
             console.log(err);
             throw err;
           });
+      },
+      createUser: args => {
+        const user = new User({
+          email: args.userInput.email,
+          password: args.userInput.password
+        });
       }
     },
     graphiql: true
