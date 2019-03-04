@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import AuthPage from "./pages/Auth";
 import BookingsPage from "./pages/Bookings";
 import EventsPage from "./pages/Events";
+import MainNavigation from "./components/Navigation/Main";
 
 import "./App.css";
 
@@ -11,6 +12,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
+        <MainNavigation />
         <Switch>
           <Redirect from="/" to="/auth" exact />
           <Route path="/auth" component={AuthPage} />
