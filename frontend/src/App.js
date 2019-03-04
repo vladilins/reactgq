@@ -12,13 +12,17 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <MainNavigation />
-        <Switch>
-          <Redirect from="/" to="/auth" exact />
-          <Route path="/auth" component={AuthPage} />
-          <Route path="/events" component={EventsPage} />
-          <Route path="/bookings" component={BookingsPage} />
-        </Switch>
+        <React.Fragment>
+          <MainNavigation />
+          <main>
+            <Switch>
+              <Redirect from="/" to="/auth" exact />
+              <Route path="/auth" component={AuthPage} />
+              <Route path="/events" component={EventsPage} />
+              <Route path="/bookings" component={BookingsPage} />
+            </Switch>
+          </main>
+        </React.Fragment>
       </BrowserRouter>
     );
   }
