@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-class Auth extends Component {
+class BookingsPage extends Component {
   render() {
-    return <div>Bookings</div>;
+    return <h1>The Bookings Page</h1>;
   }
 }
 
-export default Auth;
+export default BookingsPage;
