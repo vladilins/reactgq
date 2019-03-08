@@ -1,8 +1,8 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-import AuthContext from "../../context/auth-context";
-import "./MainNavigation.css";
+import AuthContext from '../../context/auth-context';
+import './MainNavigation.css';
 
 const mainNavigation = props => (
   <AuthContext.Consumer>
